@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="title">
+    Hire an expert from our EduPoint!
+  </div>
+  <div class="subtitle">
+    Prices listed are per hour.
+  </div>
+  <ul class="products">
+    <li class="product-item" *ngFor="let teacher of teachers">
+      <product-details [product]="teacher">
+        <button class="cta" (click)="addToCart(teacher)">Hire</button>
+      </product-details>
+    </li>
+  </ul>
+</div>
