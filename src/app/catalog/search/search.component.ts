@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../product.model';
 import { productsArray } from '../products-data'
+import { ProductService } from '@catalog/products.service';
 
 @Component({
   selector: 'bot-search',
@@ -9,14 +10,17 @@ import { productsArray } from '../products-data'
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  products: Product[] = [...productsArray];
+  products: Product[] = [];
   searchTerm: string = '';
   cart: Product[] = [];
+  private productService : ProductService;
 
-  constructor() { }
+  constructor() { 
+    this.productService = new ProductService();
+  }
 
   ngOnInit() {
-    this.products = [...productsArray];
+    this.products = this.productService.getProducts();
   }
 
   addToCart(product: Product) {

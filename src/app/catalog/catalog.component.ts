@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product.model';
 import { productsArray } from './products-data';
+import { ProductService } from './products.service';
 
 @Component({
   selector: 'catalog',
@@ -9,14 +10,16 @@ import { productsArray } from './products-data';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent implements OnInit {
-  products: Product[] = productsArray;
+  products: Product[] = [];
   private cart: Product[] = [];
+  private productService : ProductService;
 
 
   constructor() { 
-
+    this.productService = new ProductService();
   }
   ngOnInit(): void {
+    this.products = this.productService.getProducts();
   }
 
   addToCart(product: Product) {
