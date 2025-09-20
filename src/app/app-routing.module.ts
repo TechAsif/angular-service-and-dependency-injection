@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'catalog', component: CatalogComponent, title: "Catalog - Shop" },
   { path: 'search', component: SearchComponent, title: "Search - Shop" },
   { path: 'cart', component: CartComponent, title: "Cart - Shop" },
-  { path: 'hire', loadChildren: () => import('./edupoint/edupoint.module').then(m => m.EdupointModule) },
   { path: '', redirectTo: '/catalog', pathMatch: 'full' },
 ];
 
