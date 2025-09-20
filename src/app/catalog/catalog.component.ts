@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product.model';
+import { productsArray } from './products-data';
 
 @Component({
   selector: 'catalog',
@@ -8,7 +9,7 @@ import { Product } from './product.model';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent implements OnInit {
-  products: Product[] = [];
+  products: Product[] = productsArray;
   private cart: Product[] = [];
 
 
