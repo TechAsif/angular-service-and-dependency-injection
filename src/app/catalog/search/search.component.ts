@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../product.model';
-import { productsArray } from '../products-data'
 import { ProductService } from '@catalog/products.service';
+import { CartService } from '@core/cart.service';
 
 @Component({
   selector: 'bot-search',
@@ -15,7 +15,7 @@ export class SearchComponent {
   cart: Product[] = [];
   private productService : ProductService;
 
-  constructor() { 
+  constructor(private cartService : CartService) { 
     this.productService = new ProductService();
   }
 
@@ -24,7 +24,7 @@ export class SearchComponent {
   }
 
   addToCart(product: Product) {
-    this.cart.push(product);
+    this.cartService.add(product)
   }
 
   filter(event: Event) {
